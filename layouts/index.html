@@ -1,0 +1,106 @@
+{{ define "content" }}
+<div id="nieuws">
+    <h2>In het nieuws</h2>
+    <div class="row">
+        <div class="foto col-sm12 col-md-9 col-lg-8">
+            <div>
+                {{ .Site.Data.news.body | markdownify }}
+            </div>
+            {{ $picture := index .Site.Data.news.pictures 0 }}
+            {{ with $picture }}
+            <a><img src="{{ .picture }}"></a>
+        </div>
+        {{ end }}
+
+        {{ $picture := index .Site.Data.news.pictures 1 }}
+        {{ with $picture }}
+        <div class="foto col-sm12 col-md-3 col-lg-4">
+            <a><img src="{{ .picture }}"></a>
+        </div>
+        {{ end }}
+    </div>
+</div>
+<div id="dirigent">
+    <h2>Eline als Dirigent</h2>
+    <div class="row">
+        <div class="foto col-sm-12 hidden-lg">
+            <img class="bio-img" src="{{ .Site.Data.dirigent.picture }}">
+        </div>
+        <div class="col-sm-12 col-lg-8">
+
+            {{ .Site.Data.dirigent.body | markdownify }}
+            <br><br>
+            {{ range .Site.Data.dirigent.Quotes }}
+            <p>{{ .quote | markdownify }}</p>
+            {{ end }}
+
+        </div>
+        <div class="foto col-lg-4 hidden-xs hidden-sm hidden-md">
+            <img class="bio-img" src="{{ .Site.Data.dirigent.picture }}">
+        </div>
+    </div>
+</div>
+
+<div id="zangeres">
+    <h2>Eline als Zangeres</h2>
+    <div class="row">
+        <div class="foto col-sm-12 hidden-lg">
+            <img class="bio-img" src="{{ .Site.Data.zangeres.picture }}">
+        </div>
+        <div class="foto col-sm-12 col-lg-8">
+            {{ .Site.Data.zangeres.body | markdownify }}
+        </div>
+        <div class="foto col-lg-4 hidden-xs hidden-sm hidden-md">
+            <img class="bio-img" src="{{ .Site.Data.zangeres.picture }}">
+        </div>
+    </div>
+</div>
+
+<div id="fotos">
+    <h2>Foto's</h2>
+    <div class="row">
+        <div class="hidden-sm hidden-md col-lg-2"></div>
+        {{ $picture := index .Site.Data.pictures.pictures 0 }}
+        {{ with $picture }}
+        <div class="foto col-sm12 col-md-6 col-lg-4">
+            <a><img src="{{ .picture }}"></a>
+        </div>
+        {{ end }}
+
+        {{ $picture := index .Site.Data.pictures.pictures 1 }}
+        {{ with $picture }}
+        <div class="foto col-sm12 col-md-6 col-lg-4">
+            <a><img src="{{ .picture }}"></a>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<div id="video">
+    <h2>Videos</h2>
+    <div class="embed-responsive embed-responsive-16by9">
+        {{ .Site.Data.video.video0 | safeHTML }}
+    </div>
+</div>
+
+<div id="recensies">
+    <h2>In de media</h2>
+    <div class="row">
+        {{ range .Site.Data.media.Quotes }}
+        <p>{{ .quote | markdownify }}</p>
+        {{ end }}
+    </div>
+</div>
+
+<div id="contact">
+    <h2>Contact</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="{{ .Site.Data.contact.picture }}">
+        </div>
+        <div class="col-md-9">
+            {{ .Site.Data.contact.body | markdownify }}
+        </div>
+    </div>
+</div>
+{{ end }}

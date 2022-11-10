@@ -1,0 +1,141 @@
+/* --- Page --- */
+
+* {
+    font-family: Open Sans, Verdana, sans-serif !important;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+p {
+    font-size: 15px;
+}
+
+a, a:visited {
+    color: #303F9F;
+    font-style: italic;
+}
+
+a:hover {
+    color: #303F9F;
+    font-style: italic;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* --- Greeter --- */
+
+#top-bar {
+    width: 100vw;
+    height: 3px;
+    background-color: #3F51B5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#hero {
+    z-index: 2;
+    height: 100vh;
+    background: #efefef url("hero.jpg") no-repeat fixed center;
+    background-size: cover;
+    position: relative;
+    border-bottom: solid #3F51B5 5px;
+}
+
+#hero-text {
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    color: white;
+    width: auto;
+}
+
+#hero-text > h1, #hero-text > h2 {
+    text-shadow: 0 0 3px black;
+}
+
+/* --- Container --- */
+
+#container > div > h2 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+#container > div {
+    padding-bottom: 32px;
+    border-bottom: #bdbdbd solid 1px;
+}
+
+/* --- Concerten --- */
+
+.concert-text {
+    align-items: center;
+    padding: 15px;
+}
+
+.concert-img {
+    width: 100%;
+}
+
+#contact {
+    border: 0 !important;
+}
+
+#contact p {
+    margin: 0;
+}
+
+/* --- Biografie --- */
+
+.bio-img {
+    width: 100%;
+}
+
+/* --- Foto's --- */
+
+.foto > a > img {
+    width: 100%;
+    padding: 10px;
+}
+
+/* --- Video's --- */
+
+#video > div {
+    margin-bottom: 25px;
+}
+
+/* --- Footer --- */
+
+#footer > div > div > div > h5 > a, #footer > div > div > div > h5 > a:visited {
+    color: #efefef;
+}
+
+#footer > div > div > div > h5 > a:hover {
+    color: #efefef;
+}
+
+#footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #283593;
+}
+
+#footer > * {
+    color: #efefef;
+}
+
+/* --- Contact --- */
+
+#contact > div > div > img {
+    width:100%;
+}

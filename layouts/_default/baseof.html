@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        {{ block "favicon" . }}
+            {{ partialCached "site-favicon.html" . }}
+        {{ end }}
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open%20Sans">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <title>
+            {{ block "title" . }}
+                {{ .Site.Title }}
+            {{ end }}
+        </title>
+    </head>
+    <body>
+        <div id="top-bar"></div>
+
+        {{ block "hero" . }}
+            {{ partialCached "site-hero.html" . }}
+        {{ end }}
+
+        <div id="container" class="container">
+            {{ block "content" . }}
+
+            {{ end }}
+        </div>
+
+        {{ block "footer" . }}
+            {{ partialCached "site-footer.html" . }}
+        {{ end }}
+    </body>
+</html>

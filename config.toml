@@ -1,0 +1,6 @@
+baseURL = "https://www.elineharbers.nl/"
+languageCode = "nl-NL"
+title = "Eline Harbers"
+
+[params]
+    favicon = "favicon.ico"
