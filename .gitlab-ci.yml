@@ -21,9 +21,9 @@ deploy:
   stage: deploy
   script:
     - apt-get update && apt-get install -y curl
-    - sleep 300
     - export
     - 'OUTPUT="$(curl https://hook.srv.imabot.nl/hooks/deploy-eline-harbers?secret=$WEBHOOK_TOKEN\&token=$CI_JOB_TOKEN)"'
     - echo $OUTPUT
+    - sleep 300
   only:
     - main
