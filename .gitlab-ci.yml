@@ -2,30 +2,20 @@ stages:
   - build
   - deploy
 
-before_script:
-  - mkdir -p /kaniko/.docker
-  - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-  - |
-    cat > ca.crt << EOL
-    ${CERTIFICATE_AUTHORITY_DATA}
-    EOL
-
 build:
   stage: build
   image:
-    name: gcr.io/kaniko-project/executor:debug
+    name: klakegg/hugo:0.76.5-alpine
     entrypoint: [""]
   script:
-    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+    - hugo
+    - cp -R netlify/ public/admin/
   only:
     - main
 
 deploy:
   stage: deploy
-  image: dtzar/helm-kubectl
   script:
-    - kubectl config use-context waddl/web-eline-harbers:imabot-ams
-    - sed -i "s/<VERSION>/${CI_COMMIT_SHORT_SHA}/g" deployment.yaml
-    - kubectl apply -f deployment.yaml
+    - curl http://hook.srv.imabot.nl:9000/hooks/deploy-eline-harbers?token=$CI_JOB_TOKEN&secret=$WEBHOOK_TOKEN
   only:
     - main
