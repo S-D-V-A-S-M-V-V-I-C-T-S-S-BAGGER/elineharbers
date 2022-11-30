@@ -10,12 +10,10 @@ build:
   script:
     - hugo
     - cp -R netlify/ public/admin/
-    - pwd
-    - ls -la
   artifacts:
     expire_in: 2hrs
     paths:
-      - plublic
+      - public/
   only:
     - main
 
