@@ -16,6 +16,7 @@ build:
 deploy:
   stage: deploy
   script:
+    - apt-get update && apt-get install -y curl
     - curl http://hook.srv.imabot.nl:9000/hooks/deploy-eline-harbers?token=$CI_JOB_TOKEN&secret=$WEBHOOK_TOKEN
   only:
     - main
