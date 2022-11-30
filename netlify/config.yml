@@ -1,9 +1,9 @@
 backend:
   name: gitlab
-  repo: 5
+  repo: 6
   branch: main
   auth_type: implicit
-  app_id: 711b7ab8db7acda5ff00791c14d236733f9a182170179aba153709a898a8ac6d
+  app_id: f3373b59c765f3fccf65ca2bc2efe1258b3b999081dbbe106e330a0fe847f9f8
   api_root: https://gitlab.imabot.nl/api/v4
   base_url: https://gitlab.imabot.nl
   auth_endpoint: oauth/authorize
