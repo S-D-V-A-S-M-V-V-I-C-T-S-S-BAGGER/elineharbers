@@ -1,0 +1,14 @@
+services:
+  dev:
+    image: klakegg/hugo:0.81.0-ext-alpine
+    command:
+      - server
+      - "-D"
+      - "-p 3000"
+      - "-s /app"
+    ports:
+      - "3000:3000"
+    volumes:
+      - type: bind
+        source: .
+        target: /app
